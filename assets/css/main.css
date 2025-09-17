@@ -4710,3 +4710,95 @@ body.menu-open {
 .input-error {
   border: 1px solid red;
 }
+
+
+/* business roadmap visualization */
+
+/* Roadmap Styles */
+.roadmap-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2em;
+}
+
+.roadmap-image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+}
+
+.roadmap-image {
+    width: 100%;
+    height: auto;
+    /* Tambahkan filter untuk kondisi awal, agar gambar tidak terlalu menonjol */
+    filter: brightness(0.5);
+    transition: filter 0.5s ease;
+}
+
+/* Class untuk mengontrol spotlight */
+.roadmap-image-wrapper.spotlight-active .roadmap-image {
+    filter: brightness(1); /* Tampilkan gambar penuh saat spotlight aktif */
+}
+
+.phase-hotspots {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hotspot {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background-color: transparent;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+/* Highlight pada hover */
+.hotspot:hover {
+    border-color: #ffffff; /* Tambahkan border putih saat hover */
+}
+
+/* Style untuk kontainer informasi fase */
+.phase-info {
+    width: 100%;
+    max-width: 800px;
+    padding: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.phase-info h3 {
+    color: #ffffff;
+    font-size: 1.5em;
+}
+
+.phase-info p {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+/* BLINK TEXT/
+
+/* Definisi animasi untuk efek berkedip */
+@keyframes blink-animation {
+    50% {
+        color: yellow; /* Warna saat berkedip (50% dari durasi) */
+        opacity: 1;
+    }
+    0%, 100% {
+        color: white; /* Warna normal (awal & akhir durasi) */
+        opacity: 0.5;
+    }
+}
+
+/* Terapkan animasi pada elemen teks */
+.blinking-text {
+    animation: blink-animation 1s infinite; /* Durasi 1 detik, berulang selamanya */
+}
